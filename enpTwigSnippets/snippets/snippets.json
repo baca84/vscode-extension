@@ -1,39 +1,40 @@
+
 {
-    "include": {
+    "Include": {
         "prefix": "include",
         "body": [
             "{% include '$1' %}"
         ],
         "description": "include twig"
     },
-    "include-with": {
+    "Include with": {
         "prefix": "include with",
         "body": [
             "{% include '$1' with {$2} %}"
         ],
-        "description": "include twig with params"
+        "description": "include twig with"
     },
     "btn loader": {
         "prefix": "btn-loader",
         "body": [
             "{% include '_modules/btn/btn.html.twig'",
             "   with {",
-            "       'btnClass': 'm-btn ${1:m-btn_primary}'",
-            "       'btn_label': '${2:Kup teraz}'",
-            "       'icon': '<i class='${3:fa fa-shopping-cart}'></i>'",
-            "       'url': '${4:/www/shop/atoms/precart.php}'",
+            "   'btnClass': 'm-btn ${1:m-btn_primary}'",
+            "   'btn_label': '${2:Kup teraz}'",
+            "   'icon': '$3'",
+            "   'url': '${4:/www/shop/atoms/precart.php}'",
             "   }",
             "%}"
         ],
         "description": "btn module loader"
     },
     "Price box": {
-        "prefix": "priceBox",
+        "prefix": "priceBox-loader",
         "body": [
             "{% include '_modules/priceBox/priceBox.html.twig'",
             "   with {",
             "       'order': [{'old':1}, {'promo':2}],",
-            "       'promoPrice': '${1:5681}',",
+            "       'promoPrice': '${1:5681,99}'",
             "       'currency': 'zł'",
             "   }",
             "%}"
@@ -43,10 +44,10 @@
     "Hamburger loader": {
         "prefix": "hmbg-loader",
         "body": [
-            "{% include '_modules/hmbg.html.twig'",
-            "with {",
-            "'service': config.core.link",
-            "}",
+            "{% include '_modules/hmbg/hmbg.html.twig'",
+            "   with {",
+            "       'service': config.core.link",
+            "   }",
             "%}"
         ],
         "description": "hmbg module loader"
@@ -54,10 +55,10 @@
     "Logo loader": {
         "prefix": "logo-loader",
         "body": [
-            "{% include '_modules/logo.html.twig'",
-            "with {",
-            "'service': config.core.link",
-            "}",
+            "{% include '_modules/logo/logo.html.twig'",
+            "   with {",
+            "       'service': config.core.link",
+            "   }",
             "%}"
         ],
         "description": "logo module loader"
@@ -68,5 +69,61 @@
             "{{dump($1)}}"
         ],
         "description": "dump twig"
+    },
+    "Icon": {
+        "prefix": "icon",
+        "body": [
+            "<i class='icon-$1'></i>"
+        ],
+        "description": "add icon"
+    },
+    "Trans": {
+        "prefix": "trans",
+        "body": [
+            "{{ '$1'|trans }}"
+        ],
+        "description": "add translate"
+    },
+    "imageMacro": {
+        "prefix": "imageMacro",
+        "body": [
+            "{% import '${1:EnpFrontWebBundle::/macro/image.html.twig}' as imageMacro %}"
+        ],
+        "description": "import image macro form EnpFrontWebBundle"
+    },
+    "image": {
+        "prefix": "image",
+        "body": [
+            "{{ imageMacro.image('${1:gallery}', ${2:o.availability.icon}, [${3:17, 17}], [${3:17, 17}]) }}"
+        ],
+        "description": "insert imageMacro with params: image filter (gallery, filemanager), path, sizes"
+    },
+    "pageZone": {
+        "prefix": "pageZone",
+        "body": [
+            "{{ pageZone('${1:shop}', '${2:how_it_works}') }}"
+        ],
+        "description": "pageZone insert with params: palce and zone"
+    },
+    "adZone": {
+        "prefix": "adZone",
+        "body": [
+            "{{ adZone('${1:listing}', '${2:banner_2}', ${3:{'criteria': { 'menuItems.menu_item_id': category.id }, 'pageType': pageType }}) }}"
+        ],
+        "description": "addZone insert with params: palce and zone"
+    },
+    "postscript": {
+        "prefix": "postscript",
+        "body": [
+            "{{ postscript('${1:offer_list}', '${2:under_add_to_cart}', ${3:offer}) }}"
+        ],
+        "description": "postscript insert with params: palce, zone and offer (or o on listing)"
+    },
+    "productDescribe": {
+        "prefix": "productDescribe",
+        "body": [
+            "{{ productDescribe('${1:offer}', '${2:product_card}', ${3:delivery}) }}"
+        ],
+        "description": "productDescribe twig extension"
     }
 }
