@@ -1,0 +1,72 @@
+{
+    "include": {
+        "prefix": "include",
+        "body": [
+            "{% include '$1' %}"
+        ],
+        "description": "include twig"
+    },
+    "include-with": {
+        "prefix": "include with",
+        "body": [
+            "{% include '$1' with {$2} %}"
+        ],
+        "description": "include twig with params"
+    },
+    "btn loader": {
+        "prefix": "btn-loader",
+        "body": [
+            "{% include '_modules/btn/btn.html.twig'",
+            "   with {",
+            "       'btnClass': 'm-btn ${1:m-btn_primary}'",
+            "       'btn_label': '${2:Kup teraz}'",
+            "       'icon': '<i class='${3:fa fa-shopping-cart}'></i>'",
+            "       'url': '${4:/www/shop/atoms/precart.php}'",
+            "   }",
+            "%}"
+        ],
+        "description": "btn module loader"
+    },
+    "Price box": {
+        "prefix": "priceBox",
+        "body": [
+            "{% include '_modules/priceBox/priceBox.html.twig'",
+            "   with {",
+            "       'order': [{'old':1}, {'promo':2}],",
+            "       'promoPrice': '${1:5681}',",
+            "       'currency': 'zł'",
+            "   }",
+            "%}"
+        ],
+        "description": "price box"
+    },
+    "Hamburger loader": {
+        "prefix": "hmbg-loader",
+        "body": [
+            "{% include '_modules/hmbg.html.twig'",
+            "with {",
+            "'service': config.core.link",
+            "}",
+            "%}"
+        ],
+        "description": "hmbg module loader"
+    },
+    "Logo loader": {
+        "prefix": "logo-loader",
+        "body": [
+            "{% include '_modules/logo.html.twig'",
+            "with {",
+            "'service': config.core.link",
+            "}",
+            "%}"
+        ],
+        "description": "logo module loader"
+    },
+    "Dump": {
+        "prefix": "dump",
+        "body": [
+            "{{dump($1)}}"
+        ],
+        "description": "dump twig"
+    }
+}
