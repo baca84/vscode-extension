@@ -125,5 +125,12 @@
             "{{ productDescribe('${1:offer}', '${2:product_card}', ${3:delivery}) }}"
         ],
         "description": "productDescribe twig extension"
+    },
+    "newsletter": {
+        "prefix": "newsletter",
+        "body": [
+            "{{ displayNewsletter(['${1:newsletter}'], '${2:sign_in}', '${3:homepage}') }}"
+        ],
+        "description": "add newsletter twig extension"
     }
 }
